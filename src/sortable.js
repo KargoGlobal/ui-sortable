@@ -76,7 +76,9 @@ angular.module('ui.sortable', [])
               $timeout(function() {
                 // ensure that the jquery-ui-sortable widget instance
                 // is still bound to the directive's element
-                if (!!element.data('ui-sortable')) {
+                uiSortableInstance = element.data('ui-sortable');
+
+                if (!!uiSortableInstance && typeof uiSortableInstance != 'string') {
                   element.sortable('refresh');
                 }
               }, 0, false);
